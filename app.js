@@ -10,7 +10,6 @@ var shopify = require('./routes/shopify');
 
 var app = express();
 
-// need to put this before view engine setup
 app.use(express.static(path.join(__dirname, 'public')));
 
 // view engine setup

@@ -1,0 +1,33 @@
+<div class="product-list">
+
+  <h4>Filter Products</h4>
+  <div class="form-group">
+    <label for="filterTitle">Title</label>
+    <input id="filterTitle" type="text" class="form-control" ng-model="title">
+
+    <label for="filterStartDate">Start Date</label>
+    <input id="filterStartDate" type="date" class="form-control" ng-model="startDate">
+
+    <label for="filterEndDate">End Date</label>
+    <input id="filterEndDate" type="date" class="form-control" ng-model="endDate">
+  </div>
+
+  <div class="row">
+    <h4 class="col-md-6">Products</h4>
+    <div class="col-md-6">
+      <button ng-click="addProduct()" class=" add-product btn btn-primary">
+        Add Product
+      </button>
+    </div>
+  </div>
+
+  <ul>
+    <li ng-repeat="p in products | filter : title | dateRange:startDate:endDate">
+      <a ui-sref="products.detail({ productId: p.id })">{{p.title}}</a>
+    </li>
+  </ul>
+</div>
+
+<div class="product-detail">
+  <div ui-view></div>
+</div>

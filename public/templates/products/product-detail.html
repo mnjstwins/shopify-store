@@ -1,0 +1,35 @@
+<h2>{{product.title}}</h2>
+
+<div class="row">
+  <div class="col-md-6">
+    <button class="btn btn-primary pull-right" ng-click="editProduct()">Edit Product</button>
+  </div>
+  <div class="col-md-6">
+    <button class="btn btn-warning" ng-click="deleteProduct()">Delete Product</button>
+  </div>
+</div>
+
+<img ng-src="{{product.image.src}}">
+<p ng-bind-html="body"></p>
+
+<dl>
+  <dt>Vendor: </dt>
+  <dd>{{product.vendor}}</dd>
+
+  <dt>Product Type: </dt>
+  <dd>{{product.product_type}}</dd>
+</dl>
+
+<div ng-repeat="v in product.variants">
+  <h3>{{v.title}}</h3>
+  <dl>
+    <dt>Barcode: </dt>
+    <dd>{{v.barcode}}</dd>
+
+    <dt>Price: </dt>
+    <dd>{{v.price | currency}}</dd>
+
+    <dt>Compare Price: </dt>
+    <dd>{{v.compare_at_price | currency}}</dd>
+  </dl>
+</div>
