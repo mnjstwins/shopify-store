@@ -15,5 +15,11 @@
     "jade": "~1.6.0",
     "node-compass": "0.2.3",
     "request": "2.45.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-less": "^3.0.3",
+    "gulp-watch": "^4.3.5",
+    "less": "^2.5.3"
   }
 }

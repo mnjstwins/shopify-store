@@ -10,6 +10,9 @@ var shopify = require('./routes/shopify');
 
 var app = express();
 
+// need to put this before view engine setup
+app.use(express.static(path.join(__dirname, 'public')));
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -22,7 +25,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(require('node-compass')({mode: 'expanded'}));
-app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/shopify', shopify);
