@@ -10,10 +10,17 @@
       createProduct: function () {
           return {
             title: '',
-            description: '',
+            body_html: '',
             image: '',
             vendor: '',
-            product_type: ''
+            product_type: '',
+            variants: {
+              barcode: '',
+              sku: '',
+              price: '',
+              compare_at_price: '',
+              weight: ''
+            }
           };
       },
 

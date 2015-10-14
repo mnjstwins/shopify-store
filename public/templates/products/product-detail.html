@@ -18,18 +18,34 @@
 
   <dt>Product Type: </dt>
   <dd>{{product.product_type}}</dd>
+
+  <dt>Created On:</dt>
+  <dd>{{product.created_at | date}}</dd>
+
+  <dt>SKU: </dt>
+  <dd>{{product.variants[0].sku}}</dd>
+
+  <dt>Barcode: </dt>
+  <dd>{{product.variants[0].barcode}}</dd>
+
+  <dt>Price: </dt>
+  <dd>{{product.variants[0].price | currency}}</dd>
+
+  <dt>Compare Price: </dt>
+  <dd>{{product.variants[0].compare_at_price | currency}}</dd>
+
+  <dt>Quantity:</dt>
+  <dd>{{product.variants[0].inventory_quantity}}</dd>
+
+  <dt>Weight:</dt>
+  <dd>{{product.variants[0].weight}}</dd>
 </dl>
 
-<div ng-repeat="v in product.variants">
-  <h3>{{v.title}}</h3>
-  <dl>
-    <dt>Barcode: </dt>
-    <dd>{{v.barcode}}</dd>
-
-    <dt>Price: </dt>
-    <dd>{{v.price | currency}}</dd>
-
-    <dt>Compare Price: </dt>
-    <dd>{{v.compare_at_price | currency}}</dd>
-  </dl>
-</div>
+<dl>
+  <dt>Variants:</dt>
+  <dd>
+    <ul>
+      <li ng-repeat="v in product.variants">{{v.title}}</li>
+    </ul>
+  </dd>
+</dl>

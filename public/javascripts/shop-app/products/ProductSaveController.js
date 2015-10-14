@@ -4,7 +4,9 @@
 
   var app = angular.module('shop-app');
 
-  app.controller('ProductSaveController', ['$scope', '$stateParams', '$state', 'ProductService', function ($scope, $stateParams, $state, ProductService) {
+  app.controller('ProductSaveController', ['$scope', '$stateParams', '$state', '$sce', 'ProductService', function (
+    $scope, $stateParams, $state, $sce,
+    ProductService) {
 
     var product;
     if ($stateParams.productId) {
@@ -12,6 +14,7 @@
       ProductService.getProduct($stateParams.productId).then(function (response) {
           product = response.data.product;
           $scope.product = product;
+          //$scope.product.body_html = $sce.trustAsHtml($scope.product.body_html);
       });
     } else {
       // We are adding
