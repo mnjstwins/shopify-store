@@ -11,8 +11,8 @@
 
     //grab product detail from ProductService
     ProductService.getProduct(productId).then(
-      function (response) {
-        var product = response.data;
+      function (data) {
+        var product = data;
         $scope.product = product.product;
         $scope.body = $sce.trustAsHtml($scope.product.body_html);
 

@@ -10,8 +10,8 @@
 
     // grab products from ProductService
     ProductService.getProductList().then(
-      function (response) {
-        var products = response.data;
+      function (data) {
+        var products = data;
         $scope.products = products.products;
       },
       function (response) {

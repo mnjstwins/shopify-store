@@ -11,10 +11,9 @@
     var product;
     if ($stateParams.productId) {
       // We are editing
-      ProductService.getProduct($stateParams.productId).then(function (response) {
-          product = response.data.product;
-          $scope.product = product;
-          //$scope.product.body_html = $sce.trustAsHtml($scope.product.body_html);
+      ProductService.getProduct($stateParams.productId).then(function (data) {
+          product = data.product;
+          $scope.product = $.extend({}, product); // copy existing product object
       });
     } else {
       // We are adding
